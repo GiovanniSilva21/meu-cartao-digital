@@ -1,8 +1,6 @@
-
-        /* Aqui começa o CSS - O visual do seu site */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a; /* Azul escuro moderno */
+            background-color: #0f172a;
             color: #f8fafc;
             display: flex;
             justify-content: center;
@@ -71,48 +69,44 @@
         }
 
         
-        /* "SE" a tela for menor ou igual a 600px (celular)... */
-        @media (max-width: 600px) {
-            body {
-                background-color: lightgreen; /* A mágica acontece aqui dentro */
-            }
-        }
-
-        .botao-desafio {
-            width: 300px;
-            background-color: blue;
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #38bdf8;
-            color: #0f172a;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-        
-        }
-
-        .botao-desafio {
-            padding: 14px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            color: white;
-            transition: 0.3s;
-        }
-        
         @media (max-width: 480px) {
-        /* Ajustando o card para não ficar apertado no celular */
+            /* 1. Ajuste do Card */
             .card {
                 padding: 1.5rem;
                 max-width: 90%;
             }
 
-        /* O botão agora ocupa a largura da tela, estilo App moderno */
-            .botao-desafio {
-                width: 100%; 
-                color: white;
-                background-color: #23d366; /* Verde do Zap */
+            /* 2. Ajuste Geral dos Botões */
+            .botao {
+                display: block; /* Garante que o width 100% funcione melhor */
+                width: 100%;    /* Ocupa toda a largura do card */
+                box-sizing: border-box; /* Evita que o padding 'empurre' o botão para fora */
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            /* 3. Cores (não precisa repetir se já estão lá em cima, 
+            mas se quiser mudar algo específico no celular, coloca aqui) */
+            .whatsapp { background-color: #23d366; }
+        }
+
+        @keyframes entradaSuave {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
             }
         }
+
+        .botao {
+            animation: entradaSuave 0.8s ease-out;
+
+        }
+
+        .projetos {animation-delay: 0.2s;}
+        .whatsapp {animation-delay: 0.4s;}
+        .linkedin {animation-delay: 0.6s;}
+        .github {animation-delay: 0.8s;}
