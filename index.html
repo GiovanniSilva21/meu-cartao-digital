@@ -8,23 +8,97 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section id="inicio" class="hero">
+        <div class="hero-container">        
+            <div class="perfil-card">
+                <img src="minhafoto.png" alt="Minha foto" class="profile-img">
+                <h1>Giovanni Cardia</h1>
+                <p>Estudante de ADS na Fatec</p>
+                
+                <div class="links-grid-hero">
+                    <a href="https://wa.me/5511964776787" target="_blank" class="botao whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/giovannicardia/" target="_blank" class="botao linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
 
-    <div class="card">
-        <img src="minhafoto.png" alt="Minha foto" class="profile-img">
-        <h1>Giovanni Cardia Silva</h1>
-        <h4><strong>Estudante de Análise e Desenvolvimento de Sistemas na Fatec</strong>.</4>
-        <p>Focado em mudar de vida através da programação!!</p>
-        <a href="#" target="_blank" class="botao projetos">Ver meus projetos</a>
-        <a href="https://wa.me/5511964776787" target="_blank" class="botao whatsapp">
-            <i class="fab fa-whatsapp"></i> WhatsApp 
-        </a>
-        <a href="https://www.linkedin.com/in/giovannicardia/" target="_blank" class="botao linkedin">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://github.com/GiovanniSilva21" target="_blank" class="botao github">
-            </i> GitHub
-        </a>
-    </div>
+                    <a href="https://github.com/GiovanniSilva21" target="_blank" class="botao github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    
+                </div>
+            </div>
 
+            <div class="perfil-card">
+                <h2>Minhas Skills</h2>
+                <p>Linguagens e ferramentas que utilizo nos meus projetos.</p>
+                
+                <div class="skills-grid-hero">
+                    <div class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</div>
+                    <div class="skill-tag"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="skill-tag"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-tag"><i class="fas fa-database"></i> MySQL</div>
+                    <div class="skill-tag"><i class="fab fa-java"></i> Java</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <div class="container-interno"> <h2>Meus Projetos</h2>    
+            <div class="grid-projetos">
+                <div class="projeto-card">
+                    <div class="projeto-img">Imagem em breve</div>
+                        <h3>Sistema de Gestão Python</h3>
+                        <p>Um sistema que automatiza X para o cliente Y usando Python e MySQL.</p>
+                            <div class="tags">
+                                <span>Python</span>
+                                <span>MySQL</span>
+                            </div>
+                </div>
+                
+                <div class="projeto-card">
+                    <div class="projeto-img">Imagem em breve</div>
+                        <h3>Landing Page Freelancer</h3>
+                        <p>Estrutura focada em conversão e design responsivo.</p>
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato-section">
+        <h2>Vamos conversar?</h2>
+        <p>Tem um projeto em mente? Mande uma mensagem!</p>
+
+        <form action="https://formspree.io/f/mwvnvown" method="POST" target="_blank" class="contato-form">
+            
+            <div class="campo">
+                <label for="nome">Seu Nome</label>
+                <input type="text" id="nome" name="name" placeholder="Como te chamam?" required>
+            </div>
+
+            <div class="campo">
+                <label for="email">Seu E-mail</label>
+                <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+            </div>
+
+            <div class="campo">
+                <label for="mensagem">Como posso ajudar?</label>
+                <textarea id="mensagem" name="message" rows="5" placeholder="Descreva brevemente o seu projeto ou ideia..." required></textarea>
+            </div>
+
+            <button type="submit" class="botao">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Giovanni Cardia Silva. Desenvolvido com ☕Coffe e Código.</p>
+    </footer>
 </body>
 </html>

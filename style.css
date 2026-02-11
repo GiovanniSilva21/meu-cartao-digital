@@ -1,112 +1,322 @@
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .card {
-            background-color: #1e293b;
-            padding: 4rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            text-align: center;
-            border: 1px solid #334155;
-            max-width: 400px;
-        }
-        
-        h1 { color: #e09027; margin-bottom: 10px; }
-        p { line-height: 1.6; color: #94a3b8;}
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS (O alicerce do site)
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
 
-        .botao {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #38bdf8;
-            color: #0f172a;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .botao:hover { background-color: #7dd3fc; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .profile-img {
-            width: 150px;         /* Largura da imagem */
-            height: 150px;        /* Altura da imagem */
-            border-radius: 30%;   /* Isso faz a imagem ficar redonda */
-            border: 3px solid #38bdf8; /* Uma bordinha azul para combinar */
-            margin-bottom: 0.7rem;  /* Espaço entre a foto e seu nome */
-            object-fit: cover;    /* Garante que a foto não fique esticada */
-        }
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(circle, #283957 0%, #0f172a 100%);
+    background-attachment: fixed;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
 
-        .links-container {
-            display: flex;
-            flex-direction: column; /*Coloca um botao embaixo do outro*/
-            gap: 10px;
-            margin-top: 20px;
-        }
+section {
+    width: 100%;
+    max-width: 1100px;
+    padding: 80px 20px;
+}
 
-        .botao{
-            padding: 14px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            color: white;
-            transition: 0.3s;
-        }
+h1 { color: #e09027; margin-bottom: 10px; }
+h2 {
+    text-align: center;
+    color: #e09027;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
 
-        .whatsapp {background-color: #23d366;}
-        .linkedin {background-color: #0077b5;}
-        .github {background-color: #333;}
+p { color: #94a3b8; }
 
-        .botao:hover{
-            filter: brightness(1);
-            transform: translateY(-2px);
-        }
+/* ==========================================================================
+   2. SEÇÃO HERO (Início - Dois Cards Lado a Lado)
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-        
-        @media (max-width: 480px) {
-            /* 1. Ajuste do Card */
-            .card {
-                padding: 1.5rem;
-                max-width: 90%;
-            }
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dois cards iguais lado a lado */
+    gap: 30px;
+    align-items: stretch; /* Garante que os dois cards tenham a mesma altura */
+    width: 100%;
+    max-width: 1100px;
+}
 
-            /* 2. Ajuste Geral dos Botões */
-            .botao {
-                display: block; /* Garante que o width 100% funcione melhor */
-                width: 100%;    /* Ocupa toda a largura do card */
-                box-sizing: border-box; /* Evita que o padding 'empurre' o botão para fora */
-                margin-left: auto;
-                margin-right: auto;
-            }
+.perfil-card {
+    /* 1. Troque o fundo sólido por este transparente (RGBA) */
+    background: rgba(30, 41, 59, 0.6); 
+    
+    /* 2. O desfoque mágico (Blur) */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Garante que funcione no Safari/iPhone */
+    
+    /* 3. A bordinha de luz (Branco bem transparente) */
+    border: 1px solid rgb(255, 255, 255);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    transition: transform 0.3s ease;
+}
 
-            /* 3. Cores (não precisa repetir se já estão lá em cima, 
-            mas se quiser mudar algo específico no celular, coloca aqui) */
-            .whatsapp { background-color: #23d366; }
-        }
+/* Efeito de leve flutuação ao passar o mouse nos cards */
+.perfil-card:hover {
+    transform: translateY(-15px);
+    border-color: #38bdf8;
+}
 
-        @keyframes entradaSuave {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0px);
-            }
-        }
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 30%;
+    border: 3px solid #38bdf8;
+    margin: 0 auto 1.5rem auto; /* Centraliza a imagem e dá margem inferior */
+    object-fit: cover;
+    display: block;
+}
 
-        .botao {
-            animation: entradaSuave 0.8s ease-out;
+/* Lado das Redes Sociais (Card 1) */
+.links-grid-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
 
-        }
+.links-grid-hero .botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
 
-        .projetos {animation-delay: 0.2s;}
-        .whatsapp {animation-delay: 0.4s;}
-        .linkedin {animation-delay: 0.6s;}
-        .github {animation-delay: 0.8s;}
+/* Lado das Skills (Card 2) */
+.skills-grid-hero {
+    display: auto;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza as pílulas dentro do card */
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.skill-tag {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid #38bdf8;
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #f8fafc;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: #38bdf8;
+    color: #0f172a;
+    transform: scale(1.1);
+}
+
+.skill-tag i {
+    font-size: 1.1rem;
+    color: #38bdf8;
+}
+
+.skill-tag:hover i {
+    color: #0f172a; /* Muda a cor do ícone no hover */
+}
+/* ==========================================================================
+   3. SEÇÃO DE PROJETOS (Grid)
+   ========================================================================== */
+.projetos {
+    width: 100%;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container-interno {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 20px;
+}
+
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.projeto-card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #334155;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-10px);
+    border-color: #38bdf8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.projeto-img {
+    width: 100%;
+    height: 180px;
+    background: #0f172a;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #334155;
+    border: 2px dashed #334155;
+}
+
+/* ==========================================================================
+   4. SEÇÃO DE CONTATO (Formulário)
+   ========================================================================== */
+.contato-section {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contato-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #1e293b;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #334155;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
+    font-weight: bold;
+    color: #e09027;
+}
+
+.contato-form input, 
+.contato-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+    font-size: 1rem;
+}
+
+.contato-form input:focus {
+    border-color: #38bdf8;
+    outline: none;
+}
+
+/* ==========================================================================
+   5. BOTÕES E COMPONENTES
+   ========================================================================== */
+.botao {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #38bdf8;
+    color: #0f172a;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: #7dd3fc;
+    transform: translateY(-2px);
+}
+
+.whatsapp { background-color: #23d366; color: white; }
+.linkedin { background-color: #0077b5; color: white; }
+.github   { background-color: #333; color: white; }
+
+.footer {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   6. ANIMAÇÕES
+   ========================================================================== */
+@keyframes entradaSuave {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.perfil-card, .skill-tag, .projeto-card {
+    animation: entradaSuave 0.8s ease-out both;
+}
+
+/* Delays para as pílulas de skills não subirem todas juntas */
+.skill-tag:nth-child(1) { animation-delay: 0.1s; }
+.skill-tag:nth-child(2) { animation-delay: 0.2s; }
+.skill-tag:nth-child(3) { animation-delay: 0.3s; }
+.skill-tag:nth-child(4) { animation-delay: 0.4s; }
+.skill-tag:nth-child(5) { animation-delay: 0.5s; }
+
+/* ==========================================================================
+   7. RESPONSIVIDADE (Media Queries)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .skills-destaque { text-align: center; }
+    .skills-grid-hero { justify-content: center; }
+
+    .grid-projetos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    section { padding: 40px 15px; }
+    .perfil-card { padding: 1.5rem; }
+    .botao { width: 100%; }
+}
